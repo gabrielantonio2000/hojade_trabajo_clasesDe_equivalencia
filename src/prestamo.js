@@ -1,20 +1,17 @@
-// Función para determinar la aprobación de un préstamo
+// prestamo.js
 export const determinarAprobacionPrestamo = (tipo, deudas) => {
   if (tipo === "E") {
-    // Estudiante
-    return deudas === false
-      ? "El préstamo no está aprobado."
-      : "El préstamo no está aprobado.";
+    // Estudiante: El préstamo no se aprueba sin importar si tiene deudas o no
+    return "El préstamo no está aprobado.";
   } else if (tipo === "T") {
-    // Trabajador
-    return deudas === false
-      ? "El préstamo está aprobado."
-      : "El préstamo no está aprobado.";
+    // Trabajador: El préstamo está aprobado sin importar si tiene deudas o no
+    return "El préstamo está aprobado.";
   } else if (tipo === "R") {
-    // Retirado
+    // Retirado: El préstamo está aprobado solo si no tiene deudas
     return deudas === false
       ? "El préstamo está aprobado."
       : "El préstamo no está aprobado.";
   }
+  // Tipo inválido
   return "Tipo de solicitante inválido. Las opciones válidas son: E (Estudiante), T (Trabajador), R (Retirado).";
 };
